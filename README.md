@@ -1,4 +1,4 @@
-# Props Props Props Props Props Props
+# Props Props Props Props Props Props #done
 
 In this lesson, we will learn more about the important role that `props` play
 in React applications. By the end of the lesson you will be able to:
@@ -32,13 +32,13 @@ more evocative, way to say this is that `props` provide us with a method for
 reducing the total "surface area" of our app that is stateful. The reason `props`
 help us to minimize `state` is because we can use them to send data _down_
 into our nested child components. Because we can send data _down_,
-we can _push state up_, thereby concentrating state at the "top" of our UI's 
-hierarchy. 
+we can _push state up_, thereby concentrating state at the "top" of our UI's
+hierarchy.
 
 This may all seem a bit abstract at this point, so let's take a look at an example
 to illustrate our point.
 
-## A use-case for pushing state upwards 
+## A use-case for pushing state upwards
 
 Imagine we have an app, a Fruit Basket app. It's simple. It just tracks what's
 in our fruit basket, and what's already been eaten. In designing our application,
@@ -52,7 +52,7 @@ Given this plan, our `FruitEaten` component, for example, could look like this:
 class FruitEaten extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       fruitList: []
     };
   }
@@ -81,7 +81,7 @@ then renders that to a list. So what's the problem? Looks fine, right?
 Well...in this simple case everything looks good. But remember, we've only implemented one of
 our components. The `FruitNotEaten` component will also have to be able to fetch
 and update its state. Already, we can see that we're starting to repeat ourselves
-unnecessarily. The fetching process for fruit isn't really all that different in 
+unnecessarily. The fetching process for fruit isn't really all that different in
 each component. So why do we need to implement it twice? Plus, in general, we know
 that we should minimize state as much as possible to avoid bugs, and yet here we
 have two components maintaining their own state. That's a lot of state in such a
@@ -160,7 +160,7 @@ downward, we've been able to simplify our application's implementation, reducing
 two components into one. Already that's a huge reduction in code. But that's not
 all we've done.
 
-We've also been able to remove all that complex state logic, once maintained in 
+We've also been able to remove all that complex state logic, once maintained in
 our `FruitsEaten` and `FruitsNotEaten` components, by _pushing
 it up the component hierarchy_. Because our newly simplified `FruitList` component
 just receives the list of fruits it should display from its parent component, its
